@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split
 
 def sorted_alphanumeric(data):
     convert = lambda text: int(text) if text.isdigit() else text.lower()
-    alphanum_key = lambda key: [ convert(c) for c in re.split('([0-9]+)', key) ] 
+    alphanum_key = lambda key: [convert(c) for c in re.split('([0-9]+)', key)] 
     return sorted(data, key=alphanum_key)
 
 
@@ -74,7 +74,7 @@ class Dataset():
         
         self.image_size = (128, 128)
         indices = self._indices[subset]
-        #indices = indices[:32]
+        indices = indices[:32]
 
         image_dim = (len(indices), ) + self.image_size + (3, )
         images_array = np.zeros(image_dim, dtype=np.float32)
